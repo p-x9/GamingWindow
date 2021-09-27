@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42256D302695311400E0E12C /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42256D2F2695311400E0E12C /* UIApplication.swift */; };
-		42256D322695343100E0E12C /* UIScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42256D312695343100E0E12C /* UIScreen.swift */; };
 		42256D352695362200E0E12C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42256D342695362200E0E12C /* UIColor.swift */; };
 		424B166E26947A740061F09F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B166D26947A740061F09F /* AppDelegate.swift */; };
 		424B167026947A740061F09F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B166F26947A740061F09F /* SceneDelegate.swift */; };
@@ -18,6 +16,7 @@
 		424B167A26947A770061F09F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424B167826947A770061F09F /* LaunchScreen.storyboard */; };
 		424B168526947A770061F09F /* GamingWindowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B168426947A770061F09F /* GamingWindowTests.swift */; };
 		424B169026947A770061F09F /* GamingWindowUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B168F26947A770061F09F /* GamingWindowUITests.swift */; };
+		426F95F8270191D60086BAF0 /* NotchCorners in Frameworks */ = {isa = PBXBuildFile; productRef = 426F95F7270191D60086BAF0 /* NotchCorners */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		42256D2F2695311400E0E12C /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		42256D312695343100E0E12C /* UIScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreen.swift; sourceTree = "<group>"; };
 		42256D342695362200E0E12C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		424B166A26947A740061F09F /* GamingWindow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GamingWindow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424B166D26947A740061F09F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				426F95F8270191D60086BAF0 /* NotchCorners in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,9 +84,7 @@
 		42256D332695360E00E0E12C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				42256D2F2695311400E0E12C /* UIApplication.swift */,
 				42256D342695362200E0E12C /* UIColor.swift */,
-				42256D312695343100E0E12C /* UIScreen.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -163,6 +159,9 @@
 			dependencies = (
 			);
 			name = GamingWindow;
+			packageProductDependencies = (
+				426F95F7270191D60086BAF0 /* NotchCorners */,
+			);
 			productName = GamingWindow;
 			productReference = 424B166A26947A740061F09F /* GamingWindow.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 424B166126947A740061F09F;
+			packageReferences = (
+				426F95F6270191D60086BAF0 /* XCRemoteSwiftPackageReference "NotichCorners" */,
+			);
 			productRefGroup = 424B166B26947A740061F09F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -278,12 +280,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42256D302695311400E0E12C /* UIApplication.swift in Sources */,
 				42256D352695362200E0E12C /* UIColor.swift in Sources */,
 				424B167226947A740061F09F /* ViewController.swift in Sources */,
 				424B166E26947A740061F09F /* AppDelegate.swift in Sources */,
 				424B167026947A740061F09F /* SceneDelegate.swift in Sources */,
-				42256D322695343100E0E12C /* UIScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +621,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		426F95F6270191D60086BAF0 /* XCRemoteSwiftPackageReference "NotichCorners" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/p-x9/NotichCorners.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		426F95F7270191D60086BAF0 /* NotchCorners */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 426F95F6270191D60086BAF0 /* XCRemoteSwiftPackageReference "NotichCorners" */;
+			productName = NotchCorners;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 424B166226947A740061F09F /* Project object */;
 }
