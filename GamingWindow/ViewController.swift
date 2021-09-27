@@ -70,6 +70,7 @@ class ViewController: UIViewController {
         self.shapeLayer.add(group, forKey: "group-animation")
     }
 
+    // ref:https://stackoverflow.com/questions/65283017/how-do-you-trace-the-border-of-an-iphone-screen-including-the-notch-for-an-x-1
     func createPath() -> UIBezierPath {
         let devicePointWidth = UIScreen.main.bounds.size.width
         let devicePointHeight = UIScreen.main.bounds.size.height
@@ -88,42 +89,56 @@ class ViewController: UIViewController {
         let n = notchSize.width
 
         let framePath = UIBezierPath()
+        // move to (0,0).
         framePath.move(to: CGPoint(x: cornerRadius, y: 0))
+        // Line to the right.
         framePath.addLine(to: CGPoint(x: w - notchTopCornerRadius, y: 0))
+        // Notch top corner
         framePath.addArc(withCenter: CGPoint(x: w - notchTopCornerRadius, y: notchTopCornerRadius),
                          radius: notchTopCornerRadius,
                          startAngle: circleTop, endAngle: circleRight,
                          clockwise: true)
+        // Notch bottom corner
         framePath.addArc(withCenter: CGPoint(x: w + notchBottomCornerRadius, y: notchSize.height - notchBottomCornerRadius),
                          radius: notchBottomCornerRadius,
                          startAngle: circleLeft, endAngle: circleBottom,
                          clockwise: false)
+        // Line to the right.
         framePath.addLine(to: CGPoint(x: w + n - notchBottomCornerRadius, y: notchSize.height))
+        // Notch bottom corner
         framePath.addArc(withCenter: CGPoint(x: w + n - notchBottomCornerRadius, y: notchSize.height - notchBottomCornerRadius),
                          radius: notchBottomCornerRadius,
                          startAngle: circleBottom, endAngle: circleRight,
                          clockwise: false)
+        // Notch top corner
         framePath.addArc(withCenter: CGPoint(x: w + n + notchTopCornerRadius, y: notchTopCornerRadius),
                          radius: notchTopCornerRadius,
                          startAngle: circleLeft, endAngle: circleTop,
                          clockwise: true)
+        // Line upward.
         framePath.addLine(to: CGPoint(x: devicePointWidth - cornerRadius, y: 0))
+        // Display's top right corner
         framePath.addArc(withCenter: CGPoint(x: devicePointWidth - cornerRadius, y: cornerRadius),
                          radius: cornerRadius,
                          startAngle: circleTop, endAngle: circleRight,
                          clockwise: true)
-        // framePath.addQuadCurve(to: CGPoint(x: devicePointWidth, y: cornerRadius), controlPoint: CGPoint(x: devicePointWidth, y: 0))
+        // Line downward
         framePath.addLine(to: CGPoint(x: devicePointWidth, y: devicePointHeight - cornerRadius))
+        // Display's bottom right corner
         framePath.addArc(withCenter: CGPoint(x: devicePointWidth - cornerRadius, y: devicePointHeight - cornerRadius),
                          radius: cornerRadius,
                          startAngle: circleRight, endAngle: circleBottom,
                          clockwise: true)
+        // Line to the left.
         framePath.addLine(to: CGPoint(x: cornerRadius, y: devicePointHeight))
+        // Display's bottom left corner
         framePath.addArc(withCenter: CGPoint(x: cornerRadius, y: devicePointHeight - cornerRadius),
                          radius: cornerRadius,
                          startAngle: circleBottom, endAngle: circleLeft,
                          clockwise: true)
+        // Line upward.
         framePath.addLine(to: CGPoint(x: 0, y: cornerRadius))
+        // Display's top left corner
         framePath.addArc(withCenter: CGPoint(x: cornerRadius, y: cornerRadius),
                          radius: cornerRadius,
                          startAngle: circleLeft, endAngle: circleTop,
